@@ -18,23 +18,27 @@ function App() {
   const getState = () => {
     setProductList(list)
   }
-
+ 
+  const handleAddToBasket = (event) => {
+    const chosenItem = productList.find((item)=> event.target.value == item.id)
+    const newBasket = [... basket, chosenItem]
+    setBasket(newBasket)
+  }
   return (
-    <body>
+    <div>
     <h1>Welcome to Dial-A-Basket - Buy Now.</h1>
     <Router> 
     <NavBar/>  
       <Routes>
         <Route path="/*" element={<ErrorPage/>} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductList productList={productList} />} />
+        <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
         <Route path="/basket" element={<Basket basket={basket} />} />
       </Routes>      
     </Router>
-
-    </body>
+    </div>
   );
-}
+};
 
 
 const list = [
@@ -47,7 +51,7 @@ const list = [
   {
     title: "Blue Basket",
     price: 10,
-    desc: "",
+    desc: "Blue",
     id: 2
   },
   {
