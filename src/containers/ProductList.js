@@ -1,9 +1,10 @@
+import styled from "styled-components"
 import ListItem from "../components/ListItem"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 const ProductList = ({productList}) => {
 
-    const listOfProducts = productList.map((item)=><li>{item.title}</li>)
+    const listOfProducts = productList.map((item)=><ListItem item={item}>{item.title}</ListItem>)
 
     return(
         <ul>

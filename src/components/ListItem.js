@@ -1,7 +1,11 @@
-const ListItem = () => {
+const ListItem = ({item}) => {
 
     return(
-        null
+        <li>
+        <p>{item.title}</p>
+        <p>${item.price}</p>
+        <p>{item.desc}</p>
+        </li>
     )
 }
 
