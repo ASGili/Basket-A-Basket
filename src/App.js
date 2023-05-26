@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import ProductList from "./containers/ProductList";
 import NavBar from "./components/NavBar";
-import Basket from "./components/UserBasket";
+import Basket from "./containers/UserBasket";
 import ErrorPage from "./components/ErrorPage";
 import HomePage from "./components/HomePage";
 import { useEffect, useState } from "react";
@@ -23,26 +23,42 @@ function App() {
     const chosenItem = productList.find((item)=> event.target.value == item.id)
     const newBasket = [... basket, chosenItem]
     setBasket(newBasket)
-  }
-  const handleDelFromBasket = (event) => {
-    return console.log(event.target)
-  }
+  };
+
+  const handleDelFromBasket = () => {
+    setBasket([])
+  };
+
   return (
-    <div>
-    <h1>Welcome to Dial-A-Basket - Commence Buying Now.</h1>
+    <AppMain>
+    <Headline>Welcome to Dial-A-Basket - Commence Buying Now.</Headline>
     <Router> 
     <NavBar/>  
       <Routes>
-        <Route path="/*" element={<ErrorPage/>} />
+        <Route path="/*" element={<ErrorPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
         <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} />} />
       </Routes>      
     </Router>
-    </div>
+    </AppMain>
   );
 };
 
+
+export default App;
+
+const AppMain = styled.div`
+background: rgb(20, 108, 148);
+margin: 10%;
+padding: 5%;
+padding-bottom: 50%;
+color: black;
+`
+
+const Headline = styled.h1`
+color: darkred;
+`
 
 const list = [
   {
@@ -71,4 +87,3 @@ const list = [
   },
 ]
 
-export default App;

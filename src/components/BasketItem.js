@@ -1,11 +1,10 @@
-const BasketItem = ({item, handleDelFromBasket, index}) => {
+const BasketItem = ({item}) => {
 
     return(
         <li>
         <p>{item.title}</p>
         <p>${item.price}</p>
         <p>{item.desc}</p>
-        <button value={index} onClick={handleDelFromBasket}>Delete From Basket</button>
         </li>
     )
 }

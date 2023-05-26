@@ -7,10 +7,17 @@ const ProductList = ({productList, handleAddToBasket}) => {
     const listOfProducts = productList.map((item)=><ListItem key={item.id} handleAddToBasket={handleAddToBasket} item={item}>{item.title}</ListItem>)
 
     return(
-        <ul>
+        <GridList>
             {listOfProducts}
-        </ul>
+        </GridList>
     )
 }
 
+const GridList = styled.ul`
+list-style: none;
+display: grid;
+grid-template-columns: 35% 35% 35%;
+padding: 5%;
+border: 3px solid black;
+`
 export default ProductList

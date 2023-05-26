@@ -1,4 +1,4 @@
-import BasketItem from "./BasketItem"
+import BasketItem from "../components/BasketItem"
 
 const Basket = ({basket, handleDelFromBasket}) => {
 
@@ -10,6 +10,7 @@ const Basket = ({basket, handleDelFromBasket}) => {
     return(
         <div>
         <h5>The total value of your basket of baskets is ${totalValue}</h5>
+        <button value={0} onClick={handleDelFromBasket}>Delete All From Basket</button>
         <ul>
         {userBasket}
         </ul>
