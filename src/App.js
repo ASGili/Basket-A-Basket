@@ -31,7 +31,8 @@ function App() {
 
   return (
     <AppMain>
-    <Headline>Welcome to Dial-A-Basket - Commence Buying Now.</Headline>
+    <Headline>Welcome to Basket-A-Basket.</Headline>
+    <Headline2>Commence Buying Now.</Headline2>
     <Router> 
     <NavBar/>  
       <Routes>
@@ -51,13 +52,17 @@ export default App;
 const AppMain = styled.div`
 background: rgb(20, 108, 148);
 margin: 10%;
+margin-top: 2%;
 padding: 5%;
-padding-bottom: 50%;
+padding-bottom: 25%;
 color: black;
 `
 
-const Headline = styled.h1`
-color: darkred;
+const Headline = styled.h2`
+color: rgb(134, 150, 254);
+`
+const Headline2 = styled.h3`
+color: rgb(134, 150, 254);
 `
 
 const list = [

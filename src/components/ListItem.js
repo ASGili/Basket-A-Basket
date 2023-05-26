@@ -13,7 +13,9 @@ const ListItem = ({item, handleAddToBasket}) => {
 }
 
 const GridItem = styled.li`
-
+border: 1px solid black;
+border-radius: 10px;
+padding: 2%;
 `
 
 export default ListItem
