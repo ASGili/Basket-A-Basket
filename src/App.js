@@ -24,16 +24,19 @@ function App() {
     const newBasket = [... basket, chosenItem]
     setBasket(newBasket)
   }
+  const handleDelFromBasket = (event) => {
+    return console.log(event.target)
+  }
   return (
     <div>
-    <h1>Welcome to Dial-A-Basket - Buy Now.</h1>
+    <h1>Welcome to Dial-A-Basket - Commence Buying Now.</h1>
     <Router> 
     <NavBar/>  
       <Routes>
         <Route path="/*" element={<ErrorPage/>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
-        <Route path="/basket" element={<Basket basket={basket} />} />
+        <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} />} />
       </Routes>      
     </Router>
     </div>
