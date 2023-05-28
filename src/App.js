@@ -29,6 +29,13 @@ function App() {
     setBasket([])
   };
 
+  const handleDelOneFromBasket = (event) => {
+    const basketMinusOne = basket.filter((item,itemIndex) => itemIndex != event.target.value)
+    setBasket(basketMinusOne)
+  };
+
+
+
   return (
     <AppMain>
     <Headline>Welcome to Basket-A-Basket.</Headline>
@@ -39,7 +46,7 @@ function App() {
         <Route path="/*" element={<ErrorPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
-        <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} />} />
+        <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} handleDelOneFromBasket={handleDelOneFromBasket}/>} />
       </Routes>      
     </Router>
     </AppMain>
@@ -52,7 +59,7 @@ export default App;
 const AppMain = styled.div`
 background: rgb(20, 108, 148);
 margin: 10%;
-margin-top: 2%;
+margin-top: 0%;
 padding: 5%;
 padding-bottom: 25%;
 color: black;

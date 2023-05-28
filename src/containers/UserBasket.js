@@ -1,8 +1,8 @@
 import BasketItem from "../components/BasketItem"
 
-const Basket = ({basket, handleDelFromBasket}) => {
+const Basket = ({basket, handleDelFromBasket, handleDelOneFromBasket}) => {
 
-    const userBasket = basket.map((item, index) => {return <BasketItem handleDelFromBasket={handleDelFromBasket} key= {index} index={index} item={item} />
+    const userBasket = basket.map((item, index) => {return <BasketItem handleDelFromBasket={handleDelFromBasket} handleDelOneFromBasket={handleDelOneFromBasket} key= {index} index={index} item={item} />
     })
 
     const totalValue = basket.reduce((total, item)=>{return total + item.price},0)
