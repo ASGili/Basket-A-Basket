@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import Basket from "./containers/UserBasket";
 import ErrorPage from "./components/ErrorPage";
 import HomePage from "./components/HomePage";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 
 function App() {
