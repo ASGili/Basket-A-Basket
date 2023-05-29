@@ -9,15 +9,8 @@ import { useEffect, useState } from "react";
 
 
 function App() {
-  const [productList, setProductList] = useState([])
+  const [productList, setProductList] = useState(list)
   const [basket, setBasket] = useState([])
-
-
-  useEffect(()=> getState(),[])
-  
-  const getState = () => {
-    setProductList(list)
-  }
  
   const handleAddToBasket = (event) => {
     const chosenItem = productList.find((item)=> event.target.value == item.id)
@@ -38,17 +31,17 @@ function App() {
 
   return (
     <AppMain>
-    <Headline>Welcome to Basket-A-Basket.</Headline>
-    <Headline2>Commence Buying Now.</Headline2>
-    <Router> 
-    <NavBar/>  
-      <Routes>
-        <Route path="/*" element={<ErrorPage />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
-        <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} handleDelOneFromBasket={handleDelOneFromBasket}/>} />
-      </Routes>      
-    </Router>
+        <Headline>Welcome to Basket-A-Basket.</Headline>
+        <Headline2>Commence Buying Now.</Headline2>
+      <Router> 
+        <NavBar/>  
+        <Routes>
+          <Route path="/*" element={<ErrorPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductList handleAddToBasket={handleAddToBasket} productList={productList} />} />
+          <Route path="/basket" element={<Basket basket={basket} handleDelFromBasket={handleDelFromBasket} handleDelOneFromBasket={handleDelOneFromBasket}/>} />
+        </Routes>      
+      </Router>
     </AppMain>
   );
 };
